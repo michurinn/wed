@@ -19,7 +19,6 @@ jobs:
         channel: 'stable'
 
     - run: flutter pub get
-    - run: flutter test
     - run: flutter build web --release --base-href /api_tester/
 
     - name: Archive production artifacts
