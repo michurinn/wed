@@ -19,7 +19,7 @@ jobs:
         channel: 'stable'
 
     - run: flutter pub get
-    - run: flutter build web --release --base-href /api_tester/
+    - run: flutter build web --release --base-href /wed/
 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v4
