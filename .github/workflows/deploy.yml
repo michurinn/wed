@@ -1,39 +1,50 @@
-name: Deploy Flutter Web to GitHub Pages
+name: Deploy Flutter Web to Github Pages
 
 on:
   push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+    branches: [ main ] # or your preferred branch
+  #pull_request:
+   # branches: [ main ]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.x' # specify your Flutter version
+        channel: 'stable'
+
+    - run: flutter pub get
+    - run: flutter test
+    - run: flutter build web --release --base-href /api_tester/
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: web-build
+        path: build/web
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: '3.x'
-          
-      - name: Install dependencies
-        run: flutter pub get
-        
-      - name: Build Web
-        run: flutter build web --release
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACCESS_TOKEN }}
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          publish_dir: ./build/web
-          publish_branch: gh-pages
-          keep_files: false
-          force_orphan: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: web-build
+        path: build/web
+
+    - name: Fix SPA Routing
+      run: cp build/web/index.html build/web/404.html
+
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+        publish_dir: ./build/web
