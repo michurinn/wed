@@ -61,13 +61,19 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               Image.asset('assets/Dress code.jpg'),
               const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('assets/hearts_left.jpg'),
-                  Image.asset('assets/details.jpg'),
-                  Image.asset('assets/hearts_right.jpg'),
-                ],
+              ConstrainedBox(
+                constraints: BoxConstraints.tight( Size(
+                  MediaQuery.of(context).size.width,
+                  100,
+                )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(child: Image.asset('assets/hearts_left.jpg')),
+                    Flexible(child: Image.asset('assets/details.jpg')),
+                    Flexible(child: Image.asset('assets/hearts_right.jpg')),
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
               Text(
@@ -88,17 +94,19 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/mail_left.jpg'),
-                  GestureDetector(
-                    onTap: () {
-                      launchUrl(
-                        Uri.parse('https://kraftflowers.ru/gift-subscription/'),
-                      );
-                    },
-                    child: Image.asset('assets/qr.jpg'),
+                  Flexible(child: Image.asset('assets/mail_left.jpg')),
+                  Flexible(
+                    child: GestureDetector(
+                      onTap: () {
+                        launchUrl(
+                          Uri.parse('https://kraftflowers.ru/gift-subscription/'),
+                        );
+                      },
+                      child: Image.asset('assets/qr.jpg'),
+                    ),
                   ),
 
-                  Image.asset('assets/mail_right.jpg'),
+                  Flexible(child: Image.asset('assets/mail_right.jpg')),
                 ],
               ),
               Image.asset('assets/Footer.jpg'),
