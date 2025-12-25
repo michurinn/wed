@@ -17,9 +17,9 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "assets/assets/details.jpg": "8791e6f5f61626f26bc795ed52853747",
 "assets/assets/qr.jpg": "0f8af4e69f33337f81eea95dd1406344",
 "assets/assets/Building.jpg": "02a6dbf66318ce1cc583db05f237d00b",
-"assets/assets/Event%2520plan.jpg": "46539001c24fbe6ec780501ec2d321a1",
+"assets/assets/Event%2520plan.jpg": "23c153ea590da254231b407ea9b5c661",
 "assets/assets/hearts_left.jpg": "647015d50a5a218e6e31487c4d4befb8",
-"assets/assets/Dress%2520code.jpg": "cd169b5692c914475ae39349bacd7812",
+"assets/assets/Dress%2520code.jpg": "69dfcf9794957b806f8516f9a6ee593d",
 "assets/assets/Calendar.jpg": "4e60670a51228b757bbeaeae11f12fbf",
 "assets/assets/names.png": "5c685b45d58e84698c9669996004f03e",
 "assets/assets/hearts_right.jpg": "8d82b7c3cb6a97dbd9e505bed7908e2c",
@@ -47,9 +47,9 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "canvaskit/canvaskit.js.symbols": "a3c9f77715b642d0437d9c275caba91e",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"flutter_bootstrap.js": "ec4b4e462554e4820604d93e0e30762c",
+"flutter_bootstrap.js": "46d8fb23bc703546c6f069f81483f57b",
 "version.json": "3d0a8b3e454aa8006e8b32fefcd8e5e3",
-"main.dart.js": "69ed9a3e445c29f096edbaca4dd2d9c1"};
+"main.dart.js": "20e067e19e00107b59533d31dfc0248d"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
