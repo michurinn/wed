@@ -9,6 +9,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset('assets/names.png'),
               const SizedBox(height: 20),
@@ -68,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Flexible(child: Image.asset('assets/hearts_left.jpg')),
                     Flexible(child: Image.asset('assets/details.jpg')),
@@ -78,11 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               Text(
                 """
-        Если хотите подарить нам ценный и нужный подарок, мы будем очень благодарны за вклад 
-        в бюджет нашей молодой семьи.
-        
-        А чтобы память об этом дне оставалась с нами как можно дольше — подарите нам не букет, а море цветов надолго! Для этого просто отсканируйте  QR-код для нашей цветочной подписки. Кодовая фраза: «Свадебная Забава». 
-        И самое важное — ваше присутствие скрасит этот день ярче любых букетов.  
+        Если хотите сделать нам ценный и нужный подарок, мы будем благодарны за вклад в бюджет нашей молодой семьи.
+
+А чтобы память об этом дне оставалась с нами дольше, подарите нам не букет, а целое море цветов!
+Для этого отсканируйте QR-код для оформления цветочной подписки. Кодовое слово: «Свадебная Забава».
+
+Но самое важное — ваше присутствие сделает этот день ярче любых букетов.
         """,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -93,8 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Flexible(child: Image.asset('assets/mail_left.jpg')),
+                  Flexible(child: Image.asset('assets/mail_left.jpg', fit: BoxFit.cover,width: 150,)),
                   Flexible(
                     child: GestureDetector(
                       onTap: () {
@@ -106,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
 
-                  Flexible(child: Image.asset('assets/mail_right.jpg')),
+                  Flexible(child: Image.asset('assets/mail_right.jpg',fit: BoxFit.cover,width: 130,)),
                 ],
               ),
               Image.asset('assets/Footer.jpg'),
